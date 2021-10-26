@@ -1,7 +1,13 @@
-<h2>タイトル</h2>
+<% flash.each do |key, value| %>
+    <p class="alert alert-<%= key %>">
+      <%= value %>
+    </p>
+<% end %>
+
+<h2>Title</h2>
 <p><%= @book.title %></p>
-<h2>本文</h2>
+<h2>Body</h2>
 <p><%= @book.body %></p>
 
-<%= link_to "edit", edit_book_path(@book) %>
-<%= link_to "back", books_path %>
+<%= link_to "Edit", edit_book_path(@book) %>
+<%= link_to "Back", books_path %>
