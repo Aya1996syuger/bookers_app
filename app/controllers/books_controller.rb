@@ -1,7 +1,4 @@
 class BooksController < ApplicationController
-  def new
-    @book = Book.new
-  end
 
   def index
     @books = Book.all
@@ -11,7 +8,7 @@ class BooksController < ApplicationController
   def create
       @book = Book.new(book_params)
       if @book.save
-        flash[:notice] = "登録が完了しました。"
+        flash[:notice] = "Book was successfully created."
         redirect_to book_path(@book.id)
      else
        @books = Book.all
